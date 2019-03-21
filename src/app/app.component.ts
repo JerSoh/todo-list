@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
+import { Task } from './task/task.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-list';
+  taskReceived = new EventEmitter<Task>();
+
+  onTaskAdded(newTask: Task) {
+    this.taskReceived.emit(newTask);
+  }
 }

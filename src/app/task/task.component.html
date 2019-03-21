@@ -1,0 +1,9 @@
+<section fxLayout fxLayoutAlign="center">
+  <mat-card fxFlex="400px">
+    <mat-card-title fxLayout fxLayoutAlign="center">Tasks</mat-card-title>
+    <app-task-item
+    *ngFor="let taskEl of tasks"
+    [task]="taskEl"></app-task-item>
+  </mat-card>
+</section>
+

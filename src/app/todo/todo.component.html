@@ -1,0 +1,51 @@
+<section fxLayout fxLayoutAlign="center">
+  <mat-card fxFlex="400px">
+    <mat-card-title fxLayout fxLayoutAlign="center">To Do</mat-card-title>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+      #f="ngForm"
+      (ngSubmit)="onAdd(f)">
+      <mat-form-field>
+        <input 
+          type="text" 
+          matInput 
+          placeholder="Description"
+          ngModel
+          name="description"
+          required>
+      </mat-form-field>
+      <mat-form-field>
+        <input 
+          matInput
+          [min]="minDate" 
+          [matDatepicker]="picker" 
+          placeholder="Due Date"
+          ngModel
+          name="date"
+          required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Priority</mat-label>
+        <select 
+          matNativeControl 
+          ngModel
+          name="priority"
+          required>
+          <option value="" selected></option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+      </mat-form-field>
+      <button 
+        type="submit" 
+        mat-raised-button 
+        color="primary"
+        [disabled]="f.invalid">Add Task</button>
+    </form>
+  </mat-card>
+</section>
